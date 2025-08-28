@@ -46,13 +46,13 @@ export default function App() {
   return (
     <div className={css.app}>
       <header className={css.toolbar}>
-        <SearchBox text={searchTerm} onSearch={setSearchTerm} />
+        <SearchBox defaultValue={searchTerm} onSearch={setSearchTerm} />
 
         {totalPages > 1 && (
           <Pagination
-            pageCount={totalPages}
-            forcePage={page - 1}
-            onPageChange={(selectedIndex) => setPage(selectedIndex + 1)}
+            totalPages={totalPages}
+            page={page - 1}
+            onPageChange={(nextZeroBased) => setPage(nextZeroBased + 1)}
           />
         )}
 
